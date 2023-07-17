@@ -118,7 +118,7 @@ int main(){
     //FOrmat is subject(string subjectname, string subcode, string teacher, int credit, int size, int *inputarray)
     //above is the format for entering the data
     //Below is the way to enter the subjects
-    
+    /*
     subject allsub[4];
     allsub[0]=subject("Java","BCSE103E","Sandhya",3,{"TCC1"});
     allsub[1]=subject("Maths","BMAT201L","Dhivya",4,{"A1,TA1,TAA1"});
@@ -126,5 +126,5 @@ int main(){
     allsub[3]=subject("OS","BCSE303L","Shyamala",4,{"C1","TC1","L2","L32"});
     timetable t1(allsub,4);
     t1.clashcheck(allsub,4);
-    
+    */
 }
