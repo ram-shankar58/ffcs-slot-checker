@@ -1,4 +1,4 @@
 # ffcsclashchecker
-Checks if there are clashes while choosing FFCS slots
+A small project to check if my choice of slots clash during FFCS of VIT.
 
 Format of entering data is in the code itself as comments!
