@@ -10,28 +10,31 @@ class subject{
     int credit;
     int size;
     string *periods;
-    static int count;
+    static int counter;
     subject(){
         teacher="";
         subjectname="";
         subcode="";
         credit=0;
         size=0;
-        *periods=nullptr;
+        periods={0};
 
     }
     
-    subject(string subjectname, string subcode, string teacher, int credit, int size, int *inputarray){
+    subject(string subjectname, string subcode, string teacher, int credit, initializer_list<string> inputarray){
         this->teacher=teacher;
         this->subjectname=subjectname;
         this->subcode=subcode;
         this->credit=credit;
-        this->size=size;
+        this->size=inputarray.size();
         periods=new string[size];
-        for (int i=0;i<size;i++){
-            *(periods+i)=*(inputarray+i);
+        int i=0;
+
+        for (auto element:inputarray){ //for each loop. auto assumes the datatype
+            periods[i]=element;
+            i++;
         }
-        count++;
+        counter++;
 
 
     }
@@ -46,7 +49,7 @@ void display(subject subs){
         cout<<endl;
 }
 
-int subject::count=0;
+int subject::counter=0;
 
 class timetable{
     public:
@@ -91,13 +94,13 @@ class timetable{
             }
             if (count>1){
                 cout<<"THere has been a clash!"<<endl;
-                for(int j=0;j<arraysize;j++){
+                /*for(int j=0;j<arraysize;j++){
                     for(int k=0;k<arr[j].size;k++){
                         if (arr[j].periods[k]==theory[i] or arr[j].periods[k]==lab[i]){
                             display(arr[j]);
                         }
                     }
-                }
+                }*/
                 for(int h=0;h<l;h++){
                     display(temp[h]);
                 }
@@ -111,4 +114,17 @@ class timetable{
 
 };
 //our class definitions are all done!
-
+int main(){
+    //FOrmat is subject(string subjectname, string subcode, string teacher, int credit, int size, int *inputarray)
+    //above is the format for entering the data
+    //Below is the way to enter the subjects
+    
+    subject allsub[4];
+    allsub[0]=subject("Java","BCSE103E","Sandhya",3,{"TCC1"});
+    allsub[1]=subject("Maths","BMAT201L","Dhivya",4,{"A1,TA1,TAA1"});
+    allsub[2]=subject("DSA","BCSE201L","Srinvas",3,{"D2","TD2","L1","L23"});
+    allsub[3]=subject("OS","BCSE303L","Shyamala",4,{"C1","TC1","L2","L32"});
+    timetable t1(allsub,4);
+    t1.clashcheck(allsub,4);
+    
+}
